@@ -33,5 +33,10 @@ namespace CapaNegocio
         {
             return objUsuario.D_consultarUsuarioPorId (usuario);
         }
+
+        public string N_validarUsuario(E_Usuarios usuario)
+        {
+            return objUsuario.D_validarUsuario(usuario);
+        }
     }
 }

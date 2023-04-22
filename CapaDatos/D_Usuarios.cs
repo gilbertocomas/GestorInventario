@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using CapaEntidad;
 
@@ -70,6 +71,36 @@ namespace CapaDatos
             adapter.Fill(dt);
             conn.CloseConnection();
             return dt;
+        }
+
+        public string D_validarUsuario(E_Usuarios usuario)
+        {
+            using (SqlCommand command = new SqlCommand("ps_verificar_usuario", conn.Connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@login_usuario", usuario.LoginUsuario));
+                command.Parameters.Add(new SqlParameter("@password_usuario", usuario.PasswordUsuario));
+                conn.OpenConnection();
+                SqlDataReader reader = command.ExecuteReader();
+
+                // Verificar si hay resultados y obtener el valor de la columna "Rol" o "Error"
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    string result = reader.IsDBNull(0) ? "" : reader.GetString(0);
+                    reader.Close(); //En este metodo me vi en la obligacion de cerrar el reader.
+                    conn.CloseConnection(); 
+                    return result;
+                }
+                else
+                {
+                    reader.Close(); 
+                    conn.CloseConnection(); 
+                    return "error";
+                }
+
+            }
+
         }
 
     }

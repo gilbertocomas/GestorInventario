@@ -30,7 +30,7 @@ namespace CapaDatos
             conn.CloseConnection();
         }
 
-        public DataTable D_consultarMovimientos(E_MovimientosProductos movimientoPro)
+        public DataTable D_consultarMovimientos()
         {
             SqlCommand command = new SqlCommand("sp_consultar_movimientos", conn.Connection);
             command.CommandType = CommandType.StoredProcedure;
@@ -41,5 +41,43 @@ namespace CapaDatos
             conn.CloseConnection();
             return dt;
         }
+
+        public DataTable D_10MayoresMovimientosProductos()
+        {
+            SqlCommand command = new SqlCommand("sp_10_productos_con_mas_movimientos", conn.Connection);
+            command.CommandType = CommandType.StoredProcedure;
+            conn.OpenConnection();
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            conn.CloseConnection();
+            return dt;
+        }
+
+        public DataTable D_reporteIncrementoProductos()
+        {
+            SqlCommand command = new SqlCommand("sp_reporte_incrementos", conn.Connection);
+            command.CommandType = CommandType.StoredProcedure;
+            conn.OpenConnection();
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            conn.CloseConnection();
+            return dt;
+        }
+
+        public DataTable D_reporteDecrementoProductos()
+        {
+            SqlCommand command = new SqlCommand("sp_reporte_decrementos", conn.Connection);
+            command.CommandType = CommandType.StoredProcedure;
+            conn.OpenConnection();
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            conn.CloseConnection();
+            return dt;
+        }
+
+
     }
 }

@@ -19,9 +19,24 @@ namespace CapaNegocio
             objMovimiento.D_decrementarProducto(movProducto);
         }
 
-        public DataTable N_consultarMovimientos(E_MovimientosProductos movProducto)
+        public DataTable N_consultarMovimientos()
         {
-            return objMovimiento.D_consultarMovimientos (movProducto);
+            return objMovimiento.D_consultarMovimientos ();
+        }
+
+        public DataTable N_10MayoresMovimientosProductos()
+        {
+            return objMovimiento.D_10MayoresMovimientosProductos();
+        }
+
+        public DataTable N_reporteIncrementoProductos()
+        {
+            return objMovimiento.D_reporteIncrementoProductos();
+        }
+
+        public DataTable N_reporteDecrementoProductos()
+        {
+            return objMovimiento.D_reporteDecrementoProductos();
         }
     }
 }

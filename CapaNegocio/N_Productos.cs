@@ -23,9 +23,9 @@ namespace CapaNegocio
             objProducto.D_eliminarProducto(producto);
         }
 
-        public DataTable N_buscarProductos (E_Productos producto)
+        public DataTable N_buscarProductos ()
         {
-            return objProducto.D_buscarProductos(producto);
+            return objProducto.D_buscarProductos();
         }
 
         public DataTable N_buscarProductoPorId(E_Productos producto)
