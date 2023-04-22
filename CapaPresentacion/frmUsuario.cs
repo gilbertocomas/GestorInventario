@@ -29,9 +29,8 @@ namespace CapaPresentacion
                 txtCodUsuario.Text = dgvUsuarios.CurrentRow.Cells[0].Value.ToString();
                 txtLoginUsuario.Text = dgvUsuarios.CurrentRow.Cells[1].Value.ToString();
                 txtCorreo.Text = dgvUsuarios.CurrentRow.Cells[2].Value.ToString();
-                txtPasswordUsuario.Text = dgvUsuarios.CurrentRow.Cells[3].Value.ToString();
-                txtNombre.Text = dgvUsuarios.CurrentRow.Cells[4].Value.ToString();
-                cbRolUsuario.Text = dgvUsuarios.CurrentRow.Cells[5].Value.ToString();
+                txtNombre.Text = dgvUsuarios.CurrentRow.Cells[3].Value.ToString();
+                cbRolUsuario.Text = dgvUsuarios.CurrentRow.Cells[4].Value.ToString();
             }
         }
 
